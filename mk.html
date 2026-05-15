@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diet & Lifestyle Analysis | Manish Kumar</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fb;
+    color:#333;
+    line-height:1.7;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    background:#0f172a;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#38ef7d;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#38ef7d;
+}
+
+/* HERO SECTION */
+
+.hero{
+    min-height:100vh;
+    background:linear-gradient(rgba(15,23,42,0.7),rgba(15,23,42,0.7)),
+    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.hero h1{
+    font-size:60px;
+    margin-bottom:20px;
+    line-height:1.2;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+.student-box{
+    background:rgba(255,255,255,0.1);
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(6px);
+    margin-top:20px;
+}
+
+.student-box h3{
+    margin-bottom:10px;
+    color:#38ef7d;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 35px;
+    background:#38ef7d;
+    color:#111827;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:50px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    background:white;
+}
+
+/* GENERAL SECTION */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:80px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:42px;
+    color:#0f172a;
+}
+
+.section-title p{
+    color:#666;
+    margin-top:10px;
+}
+
+/* CARDS */
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    color:#0f172a;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#666;
+}
+
+/* STATS */
+
+.stats{
+    background:#0f172a;
+    color:white;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+    text-align:center;
+}
+
+.stat-box{
+    padding:30px;
+}
+
+.stat-box h1{
+    font-size:55px;
+    color:#38ef7d;
+}
+
+.stat-box p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+/* TABLE */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:30px;
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    border-radius:15px;
+    overflow:hidden;
+}
+
+table th{
+    background:#38ef7d;
+    padding:18px;
+    color:#111827;
+}
+
+table td{
+    padding:18px;
+    border-bottom:1px solid #eee;
+    text-align:center;
+}
+
+/* FORM */
+
+form{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+form input,
+form select,
+form textarea{
+    width:100%;
+    padding:15px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+}
+
+form button{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:#38ef7d;
+    color:#111827;
+    font-size:18px;
+    font-weight:600;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+form button:hover{
+    background:#0f172a;
+    color:white;
+}
+
+/* FOOTER */
+
+footer{
+    background:#020617;
+    color:white;
+    padding:60px 20px 30px;
+    text-align:center;
+}
+
+footer h2{
+    color:#38ef7d;
+    margin-bottom:15px;
+    font-size:35px;
+}
+
+footer p{
+    color:#bbb;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.footer-bottom{
+    margin-top:35px;
+    border-top:1px solid #333;
+    padding-top:20px;
+    font-size:14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:40px;
+}
+
+.hero p{
+    font-size:17px;
+}
+
+nav{
+    flex-direction:column;
+}
+
+nav ul{
+    margin-top:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav ul li{
+    margin:10px;
+}
+
+.section-title h2{
+    font-size:32px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+Diet<span>Analysis</span>
+</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#diet">Diet</a></li>
+<li><a href="#lifestyle">Lifestyle</a></li>
+<li><a href="#health">Health</a></li>
+<li><a href="#survey">Survey</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Diet & Lifestyle Analysis of Hostel Students</h1>
+
+<p>
+A professional research project focused on understanding the food habits,
+health conditions, sleep patterns, and lifestyle of hostel students.
+</p>
+
+<div class="student-box">
+
+<h3>Project Created By</h3>
+
+<p><strong>Manish Kumar</strong></p>
+
+<p>Student of Vivekananda Global University (VGU)</p>
+
+<p>Department of Computer Science</p>
+
+</div>
+
+<a href="#about" class="btn">Explore Project</a>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-title">
+<h2>About The Project</h2>
+<p>Understanding Hostel Students' Health & Daily Routine</p>
+</div>
+
+<div class="card-grid">
+
+<div class="card">
+<h3>Healthy Diet</h3>
+<p>
+The project studies eating habits, nutrition intake,
+and food quality among hostel students.
+</p>
+</div>
+
+<div class="card">
+<h3>Daily Lifestyle</h3>
+<p>
+It analyzes sleeping patterns, exercise routines,
+screen time, and mental health conditions.
+</p>
+</div>
+
+<div class="card">
+<h3>Health Awareness</h3>
+<p>
+The research spreads awareness about maintaining
+a healthy and balanced student life.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- DIET STATS -->
+
+<section class="stats" id="diet">
+
+<div class="container">
+
+<div class="section-title">
+<h2 style="color:white;">Diet Analysis</h2>
+<p style="color:#ddd;">
+Survey results based on hostel students
+</p>
+</div>
+
+<div class="stats-grid">
+
+<div class="stat-box">
+<h1>60%</h1>
+<p>Students Skip Breakfast</p>
+</div>
+
+<div class="stat-box">
+<h1>75%</h1>
+<p>Consume Junk Food</p>
+</div>
+
+<div class="stat-box">
+<h1>40%</h1>
+<p>Drink Soft Drinks Daily</p>
+</div>
+
+<div class="stat-box">
+<h1>30%</h1>
+<p>Eat Fruits Regularly</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LIFESTYLE -->
+
+<section id="lifestyle">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Lifestyle Analysis</h2>
+<p>Daily habits and activities of hostel students</p>
+</div>
+
+<table>
+
+<tr>
+<th>Category</th>
+<th>Observation</th>
+</tr>
+
+<tr>
+<td>Sleep Timing</td>
+<td>Most students sleep after midnight</td>
+</tr>
+
+<tr>
+<td>Exercise</td>
+<td>45% students do not exercise regularly</td>
+</tr>
+
+<tr>
+<td>Screen Time</td>
+<td>High mobile and laptop usage</td>
+</tr>
+
+<tr>
+<td>Mental Health</td>
+<td>Stress and anxiety are common</td>
+</tr>
+
+<tr>
+<td>Water Intake</td>
+<td>Most students drink less water daily</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- HEALTH PROBLEMS -->
+
+<section id="health">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Common Health Problems</h2>
+<p>Major issues faced by hostel students</p>
+</div>
+
+<div class="card-grid">
+
+<div class="card">
+<h3>Weakness</h3>
+<p>Poor nutrition and unhealthy eating habits cause weakness.</p>
+</div>
+
+<div class="card">
+<h3>Stress</h3>
+<p>Academic pressure and homesickness increase stress levels.</p>
+</div>
+
+<div class="card">
+<h3>Obesity</h3>
+<p>Fast food and lack of physical activity lead to obesity.</p>
+</div>
+
+<div class="card">
+<h3>Sleep Disorders</h3>
+<p>Late-night mobile usage affects sleep quality.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SURVEY FORM -->
+
+<section id="survey">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Student Survey Form</h2>
+<p>Share your lifestyle and food habits</p>
+</div>
+
+<form action="https://formspree.io/f/mvzlyjba" method="POST">
+
+<input type="hidden" name="_subject" value="New Hostel Lifestyle Survey Submission">
+
+<div class="input-group">
+<input type="text" name="name" placeholder="Enter Your Name" required>
+</div>
+
+<div class="input-group">
+<select name="breakfast" required>
+<option value="">Do you eat breakfast daily?</option>
+<option>Yes</option>
+<option>No</option>
+</select>
+</div>
+
+<div class="input-group">
+<select name="exercise" required>
+<option value="">Do you exercise regularly?</option>
+<option>Yes</option>
+<option>No</option>
+</select>
+</div>
+
+<div class="input-group">
+<input type="number" name="sleep" placeholder="How many hours do you sleep daily?" required>
+</div>
+
+<div class="input-group">
+<textarea name="suggestions" rows="5" placeholder="Your Suggestions"></textarea>
+</div>
+
+<button type="submit">Submit Survey</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>Diet & Lifestyle Analysis</h2>
+
+<p>
+This project was created to analyze the health,
+dietary habits, and daily routines of hostel students.
+The aim is to spread awareness about healthy living,
+fitness, and balanced nutrition among students.
+</p>
+
+<div class="footer-bottom">
+
+<p>
+© 2026 All Rights Reserved | Designed & Developed by <strong>Manish Kumar</strong>
+</p>
+
+<p>
+Student of Vivekananda Global University (VGU)
+</p>
+
+</div>
+
+</footer>
+
+</body>
+</html>
